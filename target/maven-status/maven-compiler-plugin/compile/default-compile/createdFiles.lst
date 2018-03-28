@@ -1,0 +1,13 @@
+com\sachin\dao\UserDAO.class
+com\sachin\dao\SupplierDAO.class
+com\sachin\config\ConfigContext.class
+com\sachin\dao\ProductDAO.class
+com\sachin\domain\Supplier.class
+com\sachin\DAOimple\ProductDAOimple.class
+com\sachin\DAOimple\UserDAOimple.class
+com\sachin\dao\CategoryDAO.class
+com\sachin\DAOimple\CategoryDAOimple.class
+com\sachin\DAOimple\SupplierDAOimple.class
+com\sachin\domain\Product.class
+com\sachin\domain\User.class
+com\sachin\domain\Category.class
