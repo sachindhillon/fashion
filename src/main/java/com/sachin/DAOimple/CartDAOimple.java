@@ -4,31 +4,31 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.sachin.dao.CategoryDAO;
-import com.sachin.domain.Category;
-import com.sachin.domain.User;
+import com.sachin.dao.CartDAO;
+import com.sachin.domain.Cart;
 
-@Repository("categoryDAO")
+@Repository("cartDAO")
 @Transactional
-public class CategoryDAOimple implements CategoryDAO{
+public class CartDAOimple implements CartDAO{
+	
 	@Autowired
 	private SessionFactory sessionFactory;
 	@Autowired
-	private Category category;
+	private Cart cart;
 	
-	public CategoryDAOimple(SessionFactory sessionFactory)
+	public CartDAOimple(SessionFactory sessionFactory)
 	{
 		this.sessionFactory=sessionFactory;
 	}
 
-	public CategoryDAOimple()
+	public CartDAOimple()
 	{
 		
 	}
@@ -36,10 +36,10 @@ public class CategoryDAOimple implements CategoryDAO{
 	{
 		return sessionFactory.getCurrentSession();
 	}
-	public boolean save(Category category) {
+	public boolean save(Cart cart) {
 		// TODO Auto-generated method stub
 		try {
-			getSession().save(category);
+			getSession().save(cart);
 			return true;
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -49,10 +49,10 @@ public class CategoryDAOimple implements CategoryDAO{
 		
 	}
 
-	public boolean saveOrUpdate(Category category) {
+	public boolean saveOrUpdate(Cart cart) {
 		// TODO Auto-generated method stub
 		try {
-			sessionFactory.getCurrentSession().saveOrUpdate(category);
+			sessionFactory.getCurrentSession().saveOrUpdate(cart);
 			return true;
 		} catch (HibernateException e) {
 			// TODO Auto-generated catch block
@@ -62,19 +62,19 @@ public class CategoryDAOimple implements CategoryDAO{
 		}
 	}
 
-	public Category get(String cid) {
+	public Cart get(String emailid) {
 		// TODO Auto-generated method stub
-		return sessionFactory.getCurrentSession().get(Category.class, cid);
+		return sessionFactory.getCurrentSession().get(Cart.class, emailid);
 	}
 
-	public boolean delete(String cid) {
+	public boolean delete(String emailid) {
 		try {
-			category = get(cid);
-			if (category == null) {
+			cart = get(emailid);
+			if (cart == null) {
 				return false;
 			}
 
-			sessionFactory.getCurrentSession().delete(category);
+			sessionFactory.getCurrentSession().delete(cart);
 
 			return true;
 		} catch (HibernateException e) {
@@ -84,14 +84,11 @@ public class CategoryDAOimple implements CategoryDAO{
 	}
 	}
 
-	public List<Category> list() {
+	public List<Cart> list(String emailid) {
 		// TODO Auto-generated method stub
-		//return	sessionFactory.getCurrentSession().createQuery("from Category").list();
-		
-		return (List<Category>) 
-		          sessionFactory.getCurrentSession()
-				.createCriteria(Category.class)
-				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+		return	sessionFactory.getCurrentSession().
+				createCriteria(Cart.class).add(Restrictions.eq(emailid, emailid)).list();
 	}
+
 
 }
