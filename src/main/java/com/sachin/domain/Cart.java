@@ -1,11 +1,10 @@
 package com.sachin.domain;
 
 import javax.persistence.Entity;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
@@ -20,7 +19,14 @@ public class Cart {
 	 
 	private String emailid;
 	
+	private String productid;
 
+	public String getProductid() {
+		return productid;
+	}
+	public void setProductid(String productid) {
+		this.productid = productid;
+	}
 	public int getCartid() {
 		return cartid;
 	}
