@@ -87,7 +87,7 @@ public class CartDAOimple implements CartDAO{
 	public List<Cart> list(String emailid) {
 		// TODO Auto-generated method stub
 		return	sessionFactory.getCurrentSession().
-				createCriteria(Cart.class).add(Restrictions.eq(emailid, emailid)).list();
+				createCriteria(Cart.class).add(Restrictions.eq("emailid", emailid)).list();
 	}
 
 

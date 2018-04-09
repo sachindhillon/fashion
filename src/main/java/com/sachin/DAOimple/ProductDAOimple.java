@@ -82,5 +82,10 @@ public class ProductDAOimple implements ProductDAO {
 		
 	}
 
+	public List<Product> search(String searchItem) {
+		String searchQuery="from Product where pdescription like '%"+searchItem+"'";
+		return sessionFactory.getCurrentSession().createQuery(searchQuery).list();
+	}
+
 
 }

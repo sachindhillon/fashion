@@ -11,6 +11,6 @@ public interface ProductDAO
 	public   Product     get(String pid);
 	public   boolean    delete(String pid);
 	public List<Product> list();
-
+	public List<Product> search(String searchItem);
 
 }
