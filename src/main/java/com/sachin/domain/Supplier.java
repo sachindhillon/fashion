@@ -13,6 +13,7 @@ public class Supplier {
 	private String sid;
 	private String sname;
 	private String saddress;
+	private String smobile;
 	public String getSid() {
 		return sid;
 	}
@@ -31,6 +32,13 @@ public class Supplier {
 	public void setSaddress(String saddress) {
 		this.saddress = saddress;
 	}
+	public String getSmobile() {
+		return smobile;
+	}
+	public void setSmobile(String smobile) {
+		this.smobile = smobile;
+	}
+	
 	
 	
 

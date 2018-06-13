@@ -13,6 +13,15 @@ import org.springframework.stereotype.Component;
 public class User {
 	@Id
 	private String emailid;
+	
+	private String name;
+	private String password;
+	private String mobile;
+	private Character role;
+	private Date registrationdate;
+	private String address;
+	private int pincode;
+	
 	public String getEmailid() {
 		return emailid;
 	}
@@ -43,17 +52,25 @@ public class User {
 	public void setRole(Character role) {
 		this.role = role;
 	}
-	public Date getRegistrationdate(Date date) {
+	public Date getRegistrationdate() {
 		return registrationdate;
 	}
 	public void setRegistrationdate(Date registrationdate) {
 		this.registrationdate = registrationdate;
 	}
-	private String name;
-	private String password;
-	private String mobile;
-	private Character role;
-	private Date registrationdate;
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public int getPincode() {
+		return pincode;
+	}
+	public void setPincode(int pincode) {
+		this.pincode = pincode;
+	}
+	
 	
 	
 }

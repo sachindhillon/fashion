@@ -1,3 +1,5 @@
+com\sachin\DAOimple\OrderDetailsDAOimple.class
+com\sachin\domain\OrderDetails.class
 com\sachin\dao\UserDAO.class
 com\sachin\dao\SupplierDAO.class
 com\sachin\config\ConfigContext.class
@@ -5,7 +7,11 @@ com\sachin\dao\ProductDAO.class
 com\sachin\domain\Supplier.class
 com\sachin\DAOimple\ProductDAOimple.class
 com\sachin\DAOimple\UserDAOimple.class
+com\sachin\DAOimple\CartDAOimple.class
+com\sachin\domain\Cart.class
 com\sachin\dao\CategoryDAO.class
+com\sachin\dao\CartDAO.class
+com\sachin\dao\OrderDetailsDAO.class
 com\sachin\DAOimple\CategoryDAOimple.class
 com\sachin\DAOimple\SupplierDAOimple.class
 com\sachin\domain\Product.class

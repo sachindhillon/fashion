@@ -8,6 +8,8 @@ import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -18,6 +20,7 @@ import com.sachin.domain.User;
 @Repository("categoryDAO")
 @Transactional
 public class CategoryDAOimple implements CategoryDAO{
+	 Logger logger = LoggerFactory.getLogger(CategoryDAOimple.class);
 	@Autowired
 	private SessionFactory sessionFactory;
 	@Autowired
@@ -37,12 +40,14 @@ public class CategoryDAOimple implements CategoryDAO{
 		return sessionFactory.getCurrentSession();
 	}
 	public boolean save(Category category) {
-		// TODO Auto-generated method stub
+		logger.debug("starting of save category method");
 		try {
+			logger.info("going to delete category"+category);
 			getSession().save(category);
+			logger.debug("ending of save category method");
 			return true;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			logger.error("category not saved due to"+e.getMessage());
 			e.printStackTrace();
 			return false;
 		}
@@ -50,12 +55,13 @@ public class CategoryDAOimple implements CategoryDAO{
 	}
 
 	public boolean saveOrUpdate(Category category) {
-		// TODO Auto-generated method stub
+		logger.debug("starting of saveOrupdate category method");
 		try {
 			sessionFactory.getCurrentSession().saveOrUpdate(category);
+			logger.debug("ending of saveOrupdate category method");
 			return true;
 		} catch (HibernateException e) {
-			// TODO Auto-generated catch block
+			logger.error("category not savedOrUpdate due to"+e.getMessage());
 			e.printStackTrace();
 		
 		return false;
@@ -63,30 +69,30 @@ public class CategoryDAOimple implements CategoryDAO{
 	}
 
 	public Category get(String cid) {
-		// TODO Auto-generated method stub
+		logger.debug("starting of get category method");
 		return sessionFactory.getCurrentSession().get(Category.class, cid);
 	}
 
 	public boolean delete(String cid) {
+		logger.debug("starting of delete category method");
 		try {
 			category = get(cid);
 			if (category == null) {
 				return false;
 			}
-
+			logger.info("going to delete category"+category);
 			sessionFactory.getCurrentSession().delete(category);
-
+			logger.debug("ending of delete category method");
 			return true;
 		} catch (HibernateException e) {
-			// TODO Auto-generated catch block
+			logger.error("category not deleted due to"+e.getMessage());
 			e.printStackTrace();
 		return false;
 	}
 	}
 
 	public List<Category> list() {
-		// TODO Auto-generated method stub
-		//return	sessionFactory.getCurrentSession().createQuery("from Category").list();
+		logger.debug("starting of list of category method");
 		
 		return (List<Category>) 
 		          sessionFactory.getCurrentSession()

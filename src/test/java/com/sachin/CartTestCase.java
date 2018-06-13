@@ -35,11 +35,14 @@ public class CartTestCase {
 	@Test
 	public void cartTestCase()
 	{
-		cart.setEmailid("sachin@gmail.com");
+		cart.setUseremail("sachin@gmail.com");
 		cart.setProductid("2");
-		cart.setProductName("laptop");
-		cart.setPrice(50000);
+		cart.setProductname("laptop");
+		
 		cart.setQuantity(1);
+		cart.setProductdescription("very good");
+		cart.setProductprice(5000);
+		cart.setAmount(cart.getProductprice()*cart.getQuantity());
 	
 	
 	  boolean flag	= cartDAO.save(cart);
@@ -51,23 +54,21 @@ public class CartTestCase {
 	{
 		cart.setEmailid("sachin@gmail.com");
 		cart.setProductName("jaskaran");
-		cart.setPrice(1000);
+		cart.setCartprice(1000);
 		cart.setQuantity(6);
 	
 		boolean status = cartDAO.saveOrUpdate(cart);
 		assertEquals("update test case", true,status );
-	}
+	}*/
 	
-	@Test
+	/*@Test
 	public void getCartSuccessTestCase()
 	{
 		
-	cart= cartDAO.get("sachin@gmail.com");
-	
-	assertNotNull("get cart test case", cart);
+
 	}
-	
-	@Test
+	*/
+	/*@Test
 	public void getAllCartTestCase()
 	{
 	List<Cart>	carts = cartDAO.list("sachin@gmail.com");
@@ -81,7 +82,7 @@ public class CartTestCase {
 	public void getCartFailureTestCase()
 	{
 		
-	cart= cartDAO.get("s0002");
+	cart= cartDAO.getCart("s0002");
 	
 	assertNull("get user test case", cart);
 	}
@@ -89,7 +90,7 @@ public class CartTestCase {
 	@Test
 	public void deleteCartSuccessTestCase()
 	{
-	boolean status =cartDAO.delete("sachin@gmail.com");
+	boolean status =cartDAO.deleteCart(1254);
 	assertEquals("delete cart succss test case" , true, status);
 	
 	}
@@ -97,7 +98,7 @@ public class CartTestCase {
 	@Test
 	public void deleteCartFailureTestCase()
 	{
-	boolean status =	cartDAO.delete("s00022");
+	boolean status =	cartDAO.deleteCart(00022);
 	assertEquals("delete user failure test case" , false, status);
 	
 	}

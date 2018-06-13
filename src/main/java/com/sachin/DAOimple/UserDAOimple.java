@@ -9,6 +9,8 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -18,6 +20,7 @@ import com.sachin.domain.User;
 @Repository("userDAO")
 @Transactional
 public class UserDAOimple implements UserDAO{
+	Logger logger = LoggerFactory.getLogger(UserDAOimple.class);
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -40,30 +43,36 @@ public class UserDAOimple implements UserDAO{
 		return sessionFactory.getCurrentSession();
 	}
 	public boolean save(User user) {
-		
+		logger.debug("starting of save user method");
 		try {
 			user.setRegistrationdate(new Date(System.currentTimeMillis()));
 			user.setRole('c');
+			logger.info("going to save user"+user);
 			getSession().save(user);
+			logger.debug("ending of save user method");
 			return true;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			logger.error("user not saved due to"+e.getMessage());
 			e.printStackTrace();
 			return false;
 		}
 	}
 
 	public User getUser(String emailid) {
+		logger.debug("starting of get user method");
 		
 		return sessionFactory.getCurrentSession().get(User.class, emailid);
 	}
 
 	public boolean saveOrUpdate(User user) {
+		logger.debug("starting of saveOrUpdate user method");
 		try {
+			logger.info("going to saveOrupdate user"+user);
 			sessionFactory.getCurrentSession().saveOrUpdate(user);
+			logger.debug("ending of saveOrupdate user method");
 			return true;
 		} catch (HibernateException e) {
-			// TODO Auto-generated catch block
+			logger.error("user not savedOrUpdated due to"+e.getMessage());
 			e.printStackTrace();
 			return false;
 		}
@@ -71,7 +80,8 @@ public class UserDAOimple implements UserDAO{
 	}
 
 	public User validate(String emailid, String password) {
-		
+		logger.debug("starting of validate user method");
+		logger.info("going to validate user id"+emailid);
 		User u = (User) sessionFactory.getCurrentSession().
 				createCriteria(User.class).
 				add(Restrictions.eq("emailid", emailid))
@@ -80,37 +90,38 @@ public class UserDAOimple implements UserDAO{
 		{
 			return null;
 		}
-		else
-		{
+		logger.debug("ending of validate user method");
 			return u;
-		}
+		
 	}
 
 	public List<User> list() {
-		
+		logger.debug("starting of list of user method");
 		return	sessionFactory.getCurrentSession().createQuery("from User").list();
 	}
 
 	public boolean delete(String emailid) {
-		// TODO Auto-generated method stub
+		logger.debug("starting of delete user method");
 		try {
 			user = get(emailid);
+			logger.info("going to delete user "+user);
 			if (user == null) {
 				return false;
 			}
 
 			sessionFactory.getCurrentSession().delete(user);
-
+			logger.debug("ending of delete user method");
 			return true;
 		} catch (HibernateException e) {
-			// TODO Auto-generated catch block
+			logger.error("user not deleted due to"+e.getMessage());
 			e.printStackTrace();
 		return false;
 	}
 	}
 
 	public User get(String emailid) {
-		// TODO Auto-generated method stub
+		logger.debug("starting of get user method");
+		logger.info("going to get user with emailid"+emailid);
 		return sessionFactory.getCurrentSession().get(User.class, emailid);
 	}
 

@@ -16,40 +16,48 @@ public class Cart {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int cartid;
-	 
-	private String emailid;
-	
+	private String useremail;
 	private String productid;
-
-	public String getProductid() {
-		return productid;
-	}
-	public void setProductid(String productid) {
-		this.productid = productid;
-	}
+	private String productname;
+	private int productprice;
+	private String productdescription;
+	private int quantity;
+	private int amount;
 	public int getCartid() {
 		return cartid;
 	}
 	public void setCartid(int cartid) {
 		this.cartid = cartid;
 	}
-	public String getEmailid() {
-		return emailid;
+	public String getUseremail() {
+		return useremail;
 	}
-	public void setEmailid(String emailid) {
-		this.emailid = emailid;
+	public void setUseremail(String useremail) {
+		this.useremail = useremail;
 	}
-	public String getProductName() {
-		return productName;
+	public String getProductid() {
+		return productid;
 	}
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public void setProductid(String productid) {
+		this.productid = productid;
 	}
-	public int getPrice() {
-		return price;
+	public String getProductname() {
+		return productname;
 	}
-	public void setPrice(int price) {
-		this.price = price;
+	public void setProductname(String productname) {
+		this.productname = productname;
+	}
+	public int getProductprice() {
+		return productprice;
+	}
+	public void setProductprice(int productprice) {
+		this.productprice = productprice;
+	}
+	public String getProductdescription() {
+		return productdescription;
+	}
+	public void setProductdescription(String productdescription) {
+		this.productdescription = productdescription;
 	}
 	public int getQuantity() {
 		return quantity;
@@ -57,15 +65,13 @@ public class Cart {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public int getTotal() {
-		return total;
+	public int getAmount() {
+		return amount;
 	}
-	public void setTotal(int total) {
-		this.total = total;
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
-	private String productName;
-	private int price;
-	private int quantity;
-	@Transient
-	private int total;
+	
+
+	
 }

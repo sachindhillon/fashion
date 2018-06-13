@@ -40,6 +40,7 @@ public class SupplierTestCase {
 		supplier.setSid("123");
 		supplier.setSname("sachin");
 		supplier.setSaddress("karnal");
+		supplier.setSmobile("5475646459");
 		
 	  boolean flag	= supplierDAO.save(supplier);
 	  

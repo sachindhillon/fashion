@@ -2,9 +2,15 @@ C:\Users\Muskan Rana\eclipse-workspace\fashion\src\main\java\com\sachin\domain\U
 C:\Users\Muskan Rana\eclipse-workspace\fashion\src\main\java\com\sachin\domain\Category.java
 C:\Users\Muskan Rana\eclipse-workspace\fashion\src\main\java\com\sachin\config\ConfigContext.java
 C:\Users\Muskan Rana\eclipse-workspace\fashion\src\main\java\com\sachin\domain\Supplier.java
+C:\Users\Muskan Rana\eclipse-workspace\fashion\src\main\java\com\sachin\domain\OrderDetails.java
+C:\Users\Muskan Rana\eclipse-workspace\fashion\src\main\java\com\sachin\dao\OrderDetailsDAO.java
+C:\Users\Muskan Rana\eclipse-workspace\fashion\src\main\java\com\sachin\domain\Cart.java
 C:\Users\Muskan Rana\eclipse-workspace\fashion\src\main\java\com\sachin\DAOimple\UserDAOimple.java
+C:\Users\Muskan Rana\eclipse-workspace\fashion\src\main\java\com\sachin\dao\CartDAO.java
 C:\Users\Muskan Rana\eclipse-workspace\fashion\src\main\java\com\sachin\dao\UserDAO.java
+C:\Users\Muskan Rana\eclipse-workspace\fashion\src\main\java\com\sachin\DAOimple\OrderDetailsDAOimple.java
 C:\Users\Muskan Rana\eclipse-workspace\fashion\src\main\java\com\sachin\DAOimple\SupplierDAOimple.java
+C:\Users\Muskan Rana\eclipse-workspace\fashion\src\main\java\com\sachin\DAOimple\CartDAOimple.java
 C:\Users\Muskan Rana\eclipse-workspace\fashion\src\main\java\com\sachin\dao\CategoryDAO.java
 C:\Users\Muskan Rana\eclipse-workspace\fashion\src\main\java\com\sachin\dao\SupplierDAO.java
 C:\Users\Muskan Rana\eclipse-workspace\fashion\src\main\java\com\sachin\dao\ProductDAO.java
