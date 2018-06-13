@@ -39,7 +39,7 @@ public class OrderDetailsDAOimple implements OrderDetailsDAO{
 		return sessionFactory.getCurrentSession();
 	}
 	
-
+	//save order
 	public boolean save(OrderDetails orderDetails) {
 		logger.debug("starting of save orderDetails method");
 		try {
@@ -54,7 +54,7 @@ public class OrderDetailsDAOimple implements OrderDetailsDAO{
 		}
 		
 	}
-
+	//update order
 	public boolean saveOrUpdate(OrderDetails orderDetails) {
 		logger.debug("starting of saveor update orderDetails method");
 		try {
@@ -71,13 +71,14 @@ public class OrderDetailsDAOimple implements OrderDetailsDAO{
 
 
 	
-
+	//list of order with particular user
 	public List<OrderDetails> list(String customeremail) {
 		logger.debug("starting of get list of orderDetails method");
 		return	sessionFactory.getCurrentSession().
 				createCriteria(OrderDetails.class).add(Restrictions.eq("customeremail", customeremail)).list();
 	}
 
+		//delete order
 	public boolean deleteOrderDetails(int orderid) {
 		logger.debug("starting of delete orderDetails method");
 		try {
@@ -90,7 +91,7 @@ public class OrderDetailsDAOimple implements OrderDetailsDAO{
 			return false;
 		}
 	}
-
+	//get order by id
 	public OrderDetails getOrderDetailsById(int orderid) {
 		logger.debug("starting of get orderDetails by id method");
 		return sessionFactory.getCurrentSession().get(OrderDetails.class, orderid);
